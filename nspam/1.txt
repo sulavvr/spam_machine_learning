@@ -1,0 +1,11 @@
+Dear Sulav,
+To reset your password click the link below:
+
+Reset password
+
+If you did not request a password reset from JetBrains Account, please ignore this message.
+
+Yours truly, 
+JetBrains Team 
+https://www.jetbrains.com 
+"Develop with pleasure!" 

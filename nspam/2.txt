@@ -1,0 +1,14 @@
+All in computer science MS program,
+
+If you admitted in fall 2014 or later, and if you have discrete
+structures as one of your prerequisites (see the checksheet you got in
+the orientation), we will offer an exam during this winter break.  (We
+will try this time only).  If you pass, we will waive your requirement
+of discrete structures.  For all the prerequisites (such as Operating
+Systems, Computer Organization, Discrete Structures, Applied
+Statistics), you should try to complete in the first year.
+
+--
+Hung-Chi Su
+Department of Computer Science
+Arkansas State University
