@@ -4,43 +4,72 @@ import os
 import re
 
 
-def read_files(target):
+def read_files(target, dictionary):
+    i = 1
     folders = os.listdir()
     for folder in folders:
         # spams
         if folder == "spam":
-            spam_words = {}
             spams = os.listdir("spam")
             for spam in spams:
-                with open(folder+"/"+spam, "r") as f:
+                with open(folder+"/"+spam, "r", encoding="ISO-8859-1") as f:
                     content = f.read()
-                    target.write("spam ")
+                    target.write("1 ")
                     for line in content.splitlines():
                         if line != "":
                             for word in re.split(",|\"| |\.", line):
-                                if word not in spam_words and word != " ":
-                                    spam_words[word] = 1
-                                    target.write(word + ":" + "1 ")
+                                mword = word.lower().strip()
+                                if mword != '':
+                                    if mword not in dictionary.values():
+                                        dictionary[i] = mword
+                                        target.write(str(i) + ": 1 ")
+                                        i += 1
+                                    else:
+                                        k = check_dictionary(dictionary, mword)
+                                        if (k):
+                                            target.write(str(k) + ": 1 ")
                     target.write("\n")
         # not spams
         if folder == "nspam":
-            nspam_words = {}
             nspams = os.listdir("nspam")
             for nspam in nspams:
-                with open(folder+"/"+nspam, "r") as f:
+                with open(folder+"/"+nspam, "r", encoding="ISO-8859-1") as f:
                     content = f.read()
-                    target.write("nspam ")
+                    target.write("0 ")
                     for line in content.splitlines():
-                        if line != "":
+                        if line != " ":
                             for word in re.split(",|\"| |\.", line):
-                                if word not in nspam_words and word != " ":
-                                    nspam_words[word] = 1
-                                    target.write(word + ":" + "1 ")
+                                mword = word.lower().strip()
+                                if mword != '':
+                                    if mword not in dictionary.values():
+                                        dictionary[i] = mword
+                                        target.write(str(i) + ": 1 ")
+                                        i += 1
+                                    else:
+                                        k = check_dictionary(dictionary, mword)
+                                        if (k):
+                                            target.write(str(k) + ": 1 ")
                     target.write("\n")
-    return [spam_words, nspam_words]
+    return dictionary
 
-target = open("test.txt", 'w')
-x = read_files(target)
 
+def check_dictionary(dictionary, word):
+    for key in dictionary.keys():
+        if (word == dictionary[key]):
+            return key
+
+    return False
+
+
+target = open("test.txt", "w")
+dictionary = {}
+x = read_files(target, dictionary)
+# dictionary_text = open("dictionary.txt", "w")
+# dictionary_text.write(str(x))
+# dictionary_text.close()
 target.close()
+C = 1.0  # SVM regularization parameter
+svc = svm.SVC(kernel='linear', C=C)
 
+y_predict = svc.predict(open("test.txt", "r").read())
+print(y_predict)
