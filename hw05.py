@@ -83,20 +83,19 @@ for arr in x[0]:
     target.write("-1 ")
     for key, value in arr.items():
         target.write(str(key) + ":" + str(value) + " ")
-    target.write("")
+    target.write("\n")
 
 # not spam
 for arr in x[1]:
     target.write("1 ")
     for key, value in arr.items():
         target.write(str(key) + ":" + str(value) + " ")
-    target.write("")
+    target.write("\n")
 
 target.close()
 C = 1.0  # SVM regularization parameter
 data = load_svmlight_file("test.txt")
-print(data[0])
-# svc = svm.SVC(kernel='linear', C=C)
-
-# y_predict = svc.predict(open("test.txt", "r").read())
+svc = svm.SVC(kernel='linear', C=C)
+print(svc.fit(data[0], data[1]))
+# y_predict = svc.predict()
 # print(y_predict)
