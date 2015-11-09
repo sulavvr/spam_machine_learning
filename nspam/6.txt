@@ -1,0 +1,10 @@
+Hi Sulav Regmi!
+
+A new public key was added to your account:
+
+title: ITS Mac
+
+If this key was added in error, you can remove it under SSH Keys
+
+— 
+View it on GitLab
