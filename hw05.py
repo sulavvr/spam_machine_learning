@@ -14,7 +14,7 @@ def read_files(target):
             for spam in spams:
                 with open(folder+"/"+spam, "r") as f:
                     content = f.read()
-                    target.write("spam: ")
+                    target.write("spam ")
                     for line in content.splitlines():
                         if line != "":
                             for word in re.split(",|\"| |\.", line):
@@ -29,7 +29,7 @@ def read_files(target):
             for nspam in nspams:
                 with open(folder+"/"+nspam, "r") as f:
                     content = f.read()
-                    target.write("nspam: ")
+                    target.write("nspam ")
                     for line in content.splitlines():
                         if line != "":
                             for word in re.split(",|\"| |\.", line):
