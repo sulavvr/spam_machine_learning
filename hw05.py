@@ -9,7 +9,7 @@ import collections
 def read_files():
     dictionary = {}
     i = 1
-    folders = os.listdir()
+    folders = os.listdir(".")
     ordered_spam, ordered_nspam = [], []
     for folder in folders:
         # spams
@@ -19,7 +19,6 @@ def read_files():
                 spam_dict = {}
                 with open(folder+"/"+spam, "r", encoding="ISO-8859-1") as f:
                     content = f.read()
-                    # target.write("1 ")
                     for line in content.splitlines():
                         if line != "":
                             for word in re.split(",|\"| |\.", line):
@@ -28,7 +27,6 @@ def read_files():
                                     if mword not in dictionary.values():
                                         dictionary[i] = mword
                                         spam_dict[i] = 1
-                                        # target.write(str(i) + ":1 ")
                                         i += 1
                                     else:
                                         k = check_dictionary(dictionary, mword)
@@ -56,7 +54,7 @@ def read_files():
                                         if k:
                                             nspam_dict[k] = 1
                     ordered_nspam.append(collections.OrderedDict(sorted(nspam_dict.items())))
-    return [ordered_spam, ordered_nspam]
+    return [ordered_spam, ordered_nspam, dictionary]
 
 
 def check_dictionary(word_dictionary, word):
@@ -66,18 +64,18 @@ def check_dictionary(word_dictionary, word):
 
     return False
 
-target = open("test.txt", "w")
-x = read_files()
+target = open("train.txt", "w")
+spam, not_spam, dictionary_words = read_files()
 
 # spam
-for arr in x[0]:
+for arr in spam:
     target.write("-1 ")
     for key, value in arr.items():
         target.write(str(key) + ":" + str(value) + " ")
     target.write("\n")
 
 # not spam
-for arr in x[1]:
+for arr in not_spam:
     target.write("1 ")
     for key, value in arr.items():
         target.write(str(key) + ":" + str(value) + " ")
@@ -85,9 +83,16 @@ for arr in x[1]:
 
 target.close()
 
+dictionary = open("dictionary.txt", "w")
+for k, v in dictionary_words.items():
+    dictionary.write(str(k) + ": " + str(v) + "\n")
+dictionary.close()
+
 C = 1.0  # SVM regularization parameter
-data = load_svmlight_file("test.txt")
-svc = svm.SVC(kernel='linear', C=C)
-svc.fit(data[0], data[1])
-y_predict = svc.predict(data[0])
-print(y_predict)
+x_train, y_train = load_svmlight_file("train.txt")
+svc = svm.SVC(kernel="linear", C=C)
+svc.fit(x_train, y_train)
+test_data = load_svmlight_file("test.txt")
+predict = svc.predict(test_data[0])
+print(predict)
+# print(svc.score(data[0], data[1]))
