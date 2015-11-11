@@ -130,7 +130,7 @@
 130: a-state
 131: student
 132: research
-133: councilÂ’s
+133: council’s
 134: november
 135: meeting
 136: is
@@ -261,7 +261,7 @@
 261: under
 262: ssh
 263: keys
-264: Â—
+264: —
 265: view
 266: gitlab
 267: who
