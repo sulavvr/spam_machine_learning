@@ -1,0 +1,17 @@
+Hello
+
+You have requested a new password for the Ubuntu One
+using the following email address:
+
+sulavvr@outlook.com
+
+This email address is however not associated with any Ubuntu One
+accounts. If you want to create a new Ubuntu One account using
+this email address, please go to:
+
+https://login.ubuntu.com/+new_account
+
+Thank you,
+
+The Ubuntu One team
+https://login.ubuntu.com

@@ -1,0 +1,10 @@
+Hello All,
+You all should have received emails from David Engelken telling you about some outages this weekend. Here is the information that we were able to find out for you.
+
+Email access was down for a portion of Faculty\Staff from 9:05 AM until 12:10 PM. Student email was not impacted by this outage. Individual databases were back online manually so some users experienced a shorter downtime than others. All emails during this time should have been queued and delivered when the mailboxes came back online.
+
+Sunday March 15th around 12:45pm the process that loads course enrollments from Banner to Blackboard had an issue that disabled access to courses in Blackboard. Access to all courses was restored about 4:45pm. No grades, content, and assignments already in Blackboard were lost, but if a student was in the process of completing an assignment in Blackboard when access was lost their attempt would have been lost or only partially completed. Assignments could not be accessed during the outage. After course access was restored there was another issue with Blackboard that caused the system to crash. This occurred about 9:50pm and was resolved about 10:30pm. No grades, content, and assignments already in Blackboard were lost at this time either, but if a student was in the process of completing and assignment in Blackboard when the system went down their attempt would have been lost or only partially completed. Assignments could not be accessed during the outage either.
+
+All systems are back on line and should be functioning well. Thank you to the Blackboard team for their quick response and to our Systems team for tracking down the email issue. Thank you also to David Engelken for sending out the information to keep everyone in the loop. We had very minimal downtime due to the efforts of those named above.
+
+If you are having Blackboard issues, please email blackboard@astate.edu and if you are having email issues, please call our itshelpdesk at 870-972-3933.

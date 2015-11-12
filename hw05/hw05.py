@@ -239,4 +239,5 @@ svc.fit(x_train, y_train)
 x_test, y_test = load_svmlight_file('test.txt')
 # predicting the test files based on the model fitted above
 predict = svc.predict(x_test)
+
 print(predict)
