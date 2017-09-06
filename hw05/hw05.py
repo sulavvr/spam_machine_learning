@@ -1,9 +1,3 @@
-# *************** hw05.py ****************
-# Name: Sulav Regmi
-# ID: 50211843
-# Machine Learning
-# Dr. Hung-chi Su
-
 from sklearn import svm
 from sklearn.datasets import load_svmlight_file
 import os
